@@ -1,6 +1,4 @@
-from PySide2.QtWebEngineCore import (
-    QWebEngineUrlScheme,
-)
+from PySide6.QtWebEngineCore import QWebEngineUrlScheme
 
 
 class RuneKitScheme(QWebEngineUrlScheme):
@@ -9,7 +7,6 @@ class RuneKitScheme(QWebEngineUrlScheme):
     def __init__(self):
         super().__init__(self.scheme)
         self.setSyntax(QWebEngineUrlScheme.Syntax.Path)
-        self.setDefaultPort(QWebEngineUrlScheme.PortUnspecified)
         self.setFlags(
             QWebEngineUrlScheme.SecureScheme
             | QWebEngineUrlScheme.ContentSecurityPolicyIgnored
@@ -23,7 +20,6 @@ class Alt1Scheme(QWebEngineUrlScheme):
     def __init__(self):
         super().__init__(self.scheme)
         self.setSyntax(QWebEngineUrlScheme.Syntax.Path)
-        self.setDefaultPort(QWebEngineUrlScheme.PortUnspecified)
 
 
 def register():

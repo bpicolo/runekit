@@ -2,33 +2,20 @@ import base64
 import json
 import logging
 import secrets
-from typing import TYPE_CHECKING, Dict, Callable, List, NamedTuple
+from typing import TYPE_CHECKING, Callable, Dict, List, NamedTuple
 from urllib.parse import urljoin
 
-from PySide2.QtCore import (
-    QObject,
-    Slot,
-    QBuffer,
-    QByteArray,
-    Property,
-    QRect,
-    Signal,
-    QTimer,
-    QThreadPool,
-    QRunnable,
-    QJsonValue,
-)
-from PySide2.QtGui import QGuiApplication, QCursor, QScreen
-from PySide2.QtWebChannel import QWebChannel
-from PySide2.QtWebEngineCore import QWebEngineUrlSchemeHandler, QWebEngineUrlRequestJob
+from PySide6.QtCore import (Property, QBuffer, QByteArray, QJsonValue, QObject,
+                            QRect, QRunnable, QThreadPool, QTimer, Signal,
+                            Slot)
+from PySide6.QtGui import QCursor, QGuiApplication, QScreen
+from PySide6.QtWebChannel import QWebChannel
+from PySide6.QtWebEngineCore import (QWebEngineUrlRequestJob,
+                                     QWebEngineUrlSchemeHandler)
 
 from runekit.browser.overlay import OverlayApi
-from runekit.browser.utils import (
-    ApiPermissionDeniedException,
-    image_to_stream,
-    encode_mouse,
-    decode_image,
-)
+from runekit.browser.utils import (ApiPermissionDeniedException, decode_image,
+                                   encode_mouse, image_to_stream)
 from runekit.game.instance import ImageType
 from runekit.ui.tray import tray_icon
 

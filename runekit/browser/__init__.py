@@ -1,10 +1,10 @@
-from PySide2.QtWebEngine import QtWebEngine
+from PySide6.QtWebEngineQuick import QtWebEngineQuick
 
-from .api import Alt1WebChannel, Alt1Api
+from .api import Alt1Api, Alt1WebChannel
 from .profile import WebProfile
 from .scheme import register as register_scheme
 
 
 def init():
-    QtWebEngine.initialize()
+    QtWebEngineQuick.initialize()
     register_scheme()

@@ -1,10 +1,10 @@
+import logging
 import re
 import socket
 from typing import Optional
-import logging
 
 import psutil
-from PySide2.QtCore import QTimer, Slot
+from PySide6.QtCore import QTimer, Slot
 
 logger = logging.getLogger(__name__)
 mode = None
@@ -82,7 +82,7 @@ class PsUtilNetStat(PsUtilBaseMixin):
     def __update_world(self):
         new_world = self.fetch_world()
         if new_world != self.__last_world:
-            logger.info("World hopped from %d to %d", self.__last_world, new_world)
+            logger.info("World hopped from %d to %d", self.__last_world or "UNKNOWN", new_world)
             self.__last_world = new_world
             self.worldChanged.emit(new_world)
 
